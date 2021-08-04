@@ -47,12 +47,13 @@ class User extends AbstractModel
       *
       * @param integer|null $id Identifiant en base de données
       * @param string $username Nom de l'utilisateur
+      * @param string $userEmail Email de l'utilisateur
       * @param string $password Mot de passe de l'utilisateur
       * @param string $token Token de l'utilisateur
       */
      public function __construct(
           ?int $id = null,
-          string $username = '',
+          string $username = null,
           string $userEmail = '',
           string $password = '',
           string $token = ''
