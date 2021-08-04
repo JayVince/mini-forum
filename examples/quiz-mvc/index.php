@@ -7,6 +7,9 @@ ini_set('display_errors', 1);
 require_once __DIR__ . '/vendor/autoload.php';
 
 use AltoRouter;
+use App\View\HomeView;
+use App\View\PlayView;
+use App\Model\Question;
 
 // Instancie le routeur
 $router = new AltoRouter();
@@ -16,16 +19,21 @@ $router = new AltoRouter();
 $router->map(
   'GET',
   '/',
-  function() {
-    echo 'Page d\'accueil';
+  function () {
+    $home = new HomeView();
+    $home->send();
   }
 );
 // Page "jouer au quiz"
 $router->map(
   'GET|POST',
   '/play',
-  function() {
-    include 'play.php';
+  function () {
+    // Récupère la question actuelle en base de données
+    $question = Question::findById(1);
+    
+    $play = new PlayView($question);
+    $play->send();
   }
 );
 
@@ -40,6 +48,6 @@ if ($match === false) {
 }
 
 // Comme la cible de la route contient une fonction, exécute la fonction récupérée par le routeur
-call_user_func_array( $match['target'], $match['params'] );
+call_user_func_array($match['target'], $match['params']);
 
 die();

@@ -1,0 +1,55 @@
+@import url(https://fonts.googleapis.com/css?family=Nunito);
+
+body {
+  font-family: nunito, Arial, Helvetica, sans-serif;
+}
+
+/* -----
+SVG Icons - svgicons.sparkk.fr
+----- */
+
+.svg-icon {
+  width: 1.8em;
+  height: 1.8em;
+}
+
+.svg-icon path,
+.svg-icon polygon,
+.svg-icon rect {
+  fill: #4691f6;
+}
+
+.svg-icon circle {
+  stroke: #4691f6;
+  stroke-width: 1.5;
+}
+
+.sign {
+  color: rgb(223, 222, 222);
+}
+
+.card-text {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.thread-content {
+  /* display: inline-block; */
+  max-width: 80%;
+  /* height: 6rem; */
+  /* overflow: hidden; */
+  /* text-overflow: ellipsis; */
+  /* white-space: nowrap; */
+}
+
+.form-center {
+  margin: auto;
+  max-width: 70%;
+}
+
+footer .text-muted {
+  font-size: 0.8rem;
+}

@@ -1,0 +1,14 @@
+[
+  {
+    "method": "GET",
+    "uri": "/",
+    "controller": "HomeController",
+    "name": "home"
+  },
+  {
+    "method": "GET",
+    "uri": "/sign-up",
+    "controller": "SignupController",
+    "name": "signup"
+}
+]
