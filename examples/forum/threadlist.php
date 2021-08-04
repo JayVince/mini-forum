@@ -3,56 +3,15 @@ include 'templates/header.php';
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-use App\Model\Category;
+// use App\Model\Category;
 use App\Model\Thread;
 
-$category = Category::findAll();
+// $category = Category::findAll();
 $threads = Thread::findAll();
 
 // $catId = $_GET['catid'];
 // dd($threads);
 
-try {
-
-     $formSubmitted = $_SERVER['REQUEST_METHOD'] === 'POST';
-
-     if (!$formSubmitted) {
-          throw new Exception('This script must be accessed via a POST HTTP request.', 0);
-     }
-
-     if (
-          !isset($_POST['title']) ||
-          !isset($_POST['content'])
-     ) {
-          throw new Exception('Form field missing in request.', 1);
-     }
-
-     // Teste si l'un des champs est vide
-     if (
-          empty($_POST['title']) ||
-          empty($_POST['content'])
-     ) {
-          throw new Exception('Form should not have empty fields.', 2);
-     }
-
-     // Récupère l'ID passé dans les données de formulaire le cas échéant
-     $id = null;
-     if (isset($_POST['id'])) {
-          $id = intval($_POST['id']);
-     }
-
-     // Crée un nouvel objet représentant un post/thread à partir des informations du formulaire
-     $post = new Thread(
-          $id,
-          $_POST['title'],
-          $_POST['content'],
-          null,
-          null
-     );
-     // dd($post);
-
-} catch (\Exception $e) {
-}
 
 ?>
 
