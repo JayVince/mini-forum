@@ -7,8 +7,20 @@
   },
   {
     "method": "GET",
-    "uri": "/sign-up",
+    "uri": "/signup",
     "controller": "SignupController",
     "name": "signup"
+},
+{
+  "method": "GET",
+  "uri": "/login",
+  "controller": "SigninController",
+  "name": "signin"
+},
+{
+  "method": "GET",
+  "uri": "/thread/edit/[i:id]",
+  "controller": "EditThreadController",
+  "name": "edit-thread"
 }
 ]
