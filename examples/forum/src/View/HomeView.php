@@ -17,7 +17,7 @@ class HomeView extends AbstractView
 
      public function __construct(array $categories)
      {
-          parent::__construct('Mini-forum - Accueil');
+          parent::__construct('Mini-forum - Homepage');
 
           $this->categories = $categories;
      }

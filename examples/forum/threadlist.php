@@ -87,7 +87,7 @@ $threads = Thread::findAll();
                     <h5 class="mt-2"><a class="text-dark" href="templates/post.php"><?= $thread->getThreadTitle(); ?></a></h5>
                     <?= $thread->getThreadContent(); ?>
                </div>
-               <div class="font-weight-bold my-0">Posted by: Toto on Feb. 20th 2021</div>
+               <div class="font-weight-bold mx-2">Posted by: Toto on Feb. 20th 2021</div>
           </div>
      <?php endforeach;
      ?>
