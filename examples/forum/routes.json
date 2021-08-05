@@ -19,8 +19,20 @@
 },
 {
   "method": "GET",
-  "uri": "/thread/edit/[i:id]",
-  "controller": "EditThreadController",
-  "name": "edit-thread"
+  "uri": "/thread/[i:id]",
+  "controller": "ThreadController",
+  "name": "thread"
+},
+{
+  "method": "GET",
+  "uri": "/post/[i:id]",
+  "controller": "PostController",
+  "name": "post"
+},
+{
+  "method": "POST",
+  "uri": "/new-thread",
+  "controller": "NewThreadController",
+  "name": "new-thread"
 }
 ]

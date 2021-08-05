@@ -2,9 +2,9 @@
 
 namespace App\Controller;
 
-use App\Model\Category;
 use App\Model\Thread;
-use App\View\ThreadView;
+use App\Model\Post;
+use App\View\PostView;
 use Cda0521Framework\Exception\NotFoundException;
 use Cda0521Framework\Interfaces\ControllerInterface;
 use Cda0521Framework\Interfaces\HttpResponse;
@@ -12,13 +12,13 @@ use Cda0521Framework\Interfaces\HttpResponse;
 /**
  * Contrôleur permettant d'afficher la vue de modification d'un sujet
  */
-class ThreadController implements ControllerInterface
+class PostController implements ControllerInterface
 {
      /**
       * Le sujet à passer à la vue
-      * @var Category
+      * @var Thread
       */
-     private Category $category;
+     private Thread $thread;
 
      /**
       * Crée un nouveau contrôleur
@@ -29,14 +29,14 @@ class ThreadController implements ControllerInterface
      {
           
           // Récupère le sujet demandé par le client
-          $category = Category::findById($id);
+          $thread = Thread::findById($id);
           
           // Si le sujet n'existe pas, renvoie à la page 404
-          if (is_null($category)) {
-               throw new NotFoundException('Category #' . $id . ' does not exist.');
+          if (is_null($thread)) {
+               throw new NotFoundException('Thread #' . $id . ' does not exist.');
           }
 
-          $this->category = $category;
+          $this->thread = $thread;
      }
 
      /**
@@ -48,6 +48,6 @@ class ThreadController implements ControllerInterface
      public function invoke(): HttpResponse
      {
           
-          return new ThreadView($this->category);
+          return new PostView($this->thread);
      }
 }

@@ -2,26 +2,26 @@
 
 namespace App\View;
 
-use App\Model\Category;
+use App\Model\Thread;
 use Cda0521Framework\Html\AbstractView;
 
 /**
  * Vue permettant d'afficher la page de connexion
  */
-class ThreadView extends AbstractView
+class PostView extends AbstractView
 {
      /**
       * Topic à afficher
-      * @var Category
+      * @var Thread
       */
-     private Category $category;
+     private Thread $thread;
 
-     public function __construct(Category $category)
+     public function __construct(Thread $thread)
      {
           
-          parent::__construct('Mini-forum - Threadlist "' . $category->getName() . '"');
+          parent::__construct('Mini-forum - Post "' . $thread->getThreadTitle() . '"');
 
-          $this->category = $category;
+          $this->thread = $thread;
      }
 
      /**
@@ -32,10 +32,10 @@ class ThreadView extends AbstractView
       */
      protected function renderBody(): void
      {
-          $category = $this->category;
+          $thread = $this->thread;
 
           // Affiche le contenu de la balise body
-          include './templates/threadlist.php';
+          include './templates/post.php';
           include './templates/footer.php';
      }
 }

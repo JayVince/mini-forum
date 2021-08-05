@@ -1,26 +1,13 @@
-<?php
-include 'header.php';
-
-// require_once __DIR__ . '/vendor/autoload.php';
-
-use App\Model\Category;
-use App\Model\Thread;
-
-// $category = Category::findAll();
-// $threads = Thread::findAll();
-// dd($threads);
-?>
 
 <?php //foreach ($threads as $thread): 
 ?>
 <div class="container py-4">
      <div class="p-4 mb-4 bg-light rounded-2">
           <div class="container-fluid my-3">
-               <h2 class="display-6 ">DateTime::__construct(): Failed to parse time string (02-2020) at position 0 (0): Unexpected character</h2>
-               <p class="col-md-12 fs-5 ">I'm storing just a month and year in my db which stores it as a string such as this for example: 02-2020
-                    I'm trying to turn it into a month and date using carbon so hopefully it looks like this: February 2020</p>
+               <h2 class="display-6 "><?= $thread->getThreadTitle();?></h2>
+               <p class="col-md-12 fs-5 "><?= $thread->getThreadContent();?></p>
                <hr class="my-3">
-               <p class="fw-bold my-0">Posted by Toto on Feb. 20th 2021</p>
+               <p class="fw-bold my-0">Posted by Toto on <?= $thread->getThreadDate()->format('M-d, Y');?></p>
           </div>
      </div>
 </div>
@@ -68,7 +55,3 @@ use App\Model\Thread;
      <?php //endforeach; 
      ?>
 </div>
-
-<?php
-include 'footer.php';
-?>

@@ -1,28 +1,12 @@
-<?php
-include 'templates/header.php';
 
-require_once __DIR__ . '/vendor/autoload.php';
-
-// use App\Model\Category;
-use App\Model\Thread;
-
-// $category = Category::findAll();
-$threads = Thread::findAll();
-
-// $catId = $_GET['catid'];
-// dd($threads);
-
-
-?>
 
 <?php //foreach ($threads as $thread) :
 ?>
 <div class="container py-4 ">
      <div class="p-4 mb-4 bg-light rounded-2">
           <div class="container-fluid py-3">
-
-               <h2 class="display-6 fw-bold">Welcome to PHP for Dummies</h2>
-               <p class="col-md-12 fs-5">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar. The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven versalia, put her initial into the belt and made herself on the way. </p>
+               <h2 class="display-6 fw-bold">Welcome to <?= $category->getName() ?></h2>
+               <p class="col-md-12 fs-5"><?= $category->getDescription() ?></p>
                <hr class="my-5">
                <p>No Spam / Advertising / Self-promote in the forums. Do not post copyright-infringing material. Do not post “offensive” posts, links or images. Do not cross post questions. Do not PM users asking for help.
                     Remain respectful of other members at all times.</p>
@@ -38,18 +22,19 @@ $threads = Thread::findAll();
 <div class="container">
 
      <!-- Submit a form to ask a question -->
-     <div class="container-fluid my-5">
+     <div class="container-fluid p-4 my-5 bg-light">
           <h2 class="display-7 fw-bold text-center">Post Your Question to The Community</h2>
           <div class="form-center ">
-               <form class="form-size" action="threadlist.php" method="POST">
+               <form class="form-size" action="/thread/<?= $category->getId();?>" method="POST">
                     <div class="mb-3">
-                         <label for="exampleFormLabel" class="form-label">Title</label>
+                         <label for="title" class="form-label">Title</label>
                          <input type="text" class="form-control" id="title" name="title">
                          <div id="emailHelp" class="form-text">Keep your question as short as possible</div>
                     </div>
                     <div class="mb-3">
                          <label for="textarea" class="form-label">Detail your question</label>
                          <textarea class="form-control" id="textarea" name="content" rows="3"></textarea>
+                         <input type="hidden" name="user-token" value="a557476b7360e49711b465e441f13062">
                     </div>
                     <button type="submit" class="btn btn-primary">Post Question</button>
                </form>
@@ -62,7 +47,7 @@ $threads = Thread::findAll();
      </div>
      <?php
      $result = false;
-     foreach ($threads as $thread) :
+     foreach ($category->getThread() as $threads) :
           $result = true;
      ?>
           <?php if (!$result) : ?>
@@ -81,13 +66,13 @@ $threads = Thread::findAll();
           <!-- Question List posted -->
           <div class="d-flex align-items-center">
                <div class="flex-shrink-0">
-                    <img src="images/user.png" width="54" alt="...">
+                    <img src="../images/user.png" width="54" alt="...">
                </div>
                <div class="thread-content flex-grow-1 ms-3">
-                    <h5 class="mt-2"><a class="text-dark" href="templates/post.php"><?= $thread->getThreadTitle(); ?></a></h5>
-                    <?= $thread->getThreadContent(); ?>
+                    <h5 class="mt-2"><a class="text-dark" href="/post/<?= $threads->getId(); ?>"><?= $threads->getThreadTitle(); ?></a></h5>
+                    <?= $threads->getThreadContent(); ?>
                </div>
-               <div class="font-weight-bold mx-2">Posted by: Toto on Feb. 20th 2021</div>
+               <div class="font-weight-bold mx-2">Posted by Toto on <?= $threads->getThreadDate()->format('M-d, Y');?></div>
           </div>
      <?php endforeach;
      ?>
@@ -95,5 +80,5 @@ $threads = Thread::findAll();
 
 
 <?php
-include 'templates/footer.php';
+// include 'footer.php';
 ?>

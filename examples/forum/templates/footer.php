@@ -1,4 +1,4 @@
-<footer class="footer mt-auto py-3 bg-dark ">
+<footer class="footer mt-5 py-3 bg-dark ">
      <div class="container">
           <span class="text-muted">M-FORUM 2021 - M2i Formation Lyon</span>
      </div>

@@ -10,7 +10,7 @@ use Cda0521Framework\Database\AbstractModel;
  * Représente un utilisateur
  */
 #[Table('user')]
-class User extends AbstractModel
+class UserModel extends AbstractModel
 {
      /**
       * Identifiant en base de données

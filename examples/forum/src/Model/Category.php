@@ -119,4 +119,14 @@ class Category extends AbstractModel
 
           return $this;
      }
+
+     /**
+      * Retourne tous les threads de la catégorie sélectionnée
+      *
+      * @return  array
+      */
+     public function getThread()
+     {
+          return Thread::findWhere('thread_cat_id', $this->id);
+     }
 }
