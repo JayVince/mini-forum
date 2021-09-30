@@ -15,13 +15,13 @@
 
 <!-- Submit a comment  -->
 <div class="container">
-     <div class="container-fluid my-5">
-          <h2 class="text-center">Give Your Answer</h2>
+     <div class="container-fluid p-4 my-5 bg-light rounded-2"">
+          <h2 class="text-center">Give Your Solution</h2>
           <div class="form-center ">
                <form class="form-size" action="" method="POST">
                     <div class="mb-3">
-                         <label for="textarea" class="form-label">Write a comment</label>
-                         <textarea class="form-control" id="textarea" name="content" rows="3"></textarea>
+                         <!-- <label for="textarea" class="form-label">Write a comment</label> -->
+                         <textarea class="form-control" id="textarea" name="comment-content" rows="3"></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Post Comment</button>
                </form>

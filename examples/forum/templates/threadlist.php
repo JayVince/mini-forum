@@ -22,13 +22,13 @@
 <div class="container">
 
      <!-- Submit a form to ask a question -->
-     <div class="container-fluid p-4 my-5 bg-light">
+     <div class="container-fluid p-4 my-5 bg-light rounded-2">
           <h2 class="display-7 fw-bold text-center">Post Your Question to The Community</h2>
           <div class="form-center ">
-               <form class="form-size" action="/thread/<?= $category->getId();?>" method="POST">
+               <form class="form-size" action="/new-thread/<?= $category->getId();?>" method="POST">
                     <div class="mb-3">
                          <label for="title" class="form-label">Title</label>
-                         <input type="text" class="form-control" id="title" name="title">
+                         <input type="text" class="form-control" id="thread-title" name="thread-title">
                          <div id="emailHelp" class="form-text">Keep your question as short as possible</div>
                     </div>
                     <div class="mb-3">

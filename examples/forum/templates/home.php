@@ -22,7 +22,7 @@
                          <div class="col p-4 d-flex flex-column position-static">
                               <!-- <strong class="d-inline-block mb-2 text-primary">PHP</strong> -->
                               <h3 class="mb-0"><?= $cat->getName(); ?></h3>
-                              <div class="mb-1 text-muted">Posted on <?= $cat->getCreateDate()->format('Y-m-d'); ?></div>
+                              <div class="mb-1 text-muted">Posted on <?= $cat->getCreateDate()->format('M-d, Y'); ?></div>
                               <p class="card-text mb-auto"><?= $cat->getDescription(); ?></p>
                               <a href="/thread/<?= $cat->getId(); ?>" class="stretched-link">View Threads</a>
                          </div>

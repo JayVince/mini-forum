@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Model\Thread;
-use App\Model\Post;
+use App\Model\PostModel;
 use App\View\PostView;
 use Cda0521Framework\Exception\NotFoundException;
 use Cda0521Framework\Interfaces\ControllerInterface;
@@ -28,10 +28,10 @@ class PostController implements ControllerInterface
      public function __construct(int $id)
      {
           
-          // Récupère le sujet demandé par le client
+          // Récupère le thread demandé par le client
           $thread = Thread::findById($id);
           
-          // Si le sujet n'existe pas, renvoie à la page 404
+          // Si le thread n'existe pas, renvoie à la page 404
           if (is_null($thread)) {
                throw new NotFoundException('Thread #' . $id . ' does not exist.');
           }
